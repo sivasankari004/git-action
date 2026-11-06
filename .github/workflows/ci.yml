@@ -22,8 +22,8 @@ jobs:
 
       - name: execute files
         run: | 
-              chomd +x app.sh
-              chomd +x test.sh 
+              chmod +x app.sh
+              chmod +x test.sh 
 
       - name: run application
         run: ./app.sh 
