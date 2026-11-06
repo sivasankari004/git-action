@@ -1,0 +1,37 @@
+name: Deployment check
+
+on:
+  push:
+    branches:
+      - main
+
+
+jobs:
+  build-action:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: check repository
+        uses: action/checkout@v4
+
+      - name: show current user
+        run: whoami
+
+      - name: list project files
+        run: ls -a 
+
+      - name: execute files
+        run: | 
+              chomd +x app.sh
+              chomd +x test.sh 
+
+      - name: run application
+        run: ./app.sh 
+
+      - name: run test 
+        run: ./test.sh 
+
+      - name: success            
+        run:  echo "completed"
+
+      
